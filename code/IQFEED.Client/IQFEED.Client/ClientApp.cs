@@ -58,11 +58,18 @@ namespace IQFEED.Client
         /// </summary>
         public void Start()
         {
+            // Start IOCnnect Server Process.
             StartIQConnectProcess();
+            // Mark isRunning flag=true so that when user will request to stop we will mark it as false.
             isRunning = true;
+            // Create and new background thread with given name "Communicator Thread". 
+            // Background thread will be automatically stopped when main thread exits.
             new Thread(Run) { IsBackground = true, Name = "Communicator Thread" }.Start();
         }
 
+        /// <summary>
+        /// Requests background thread to stop by setting isRunning flag as false.
+        /// </summary>
         public void Stop()
         {
             isRunning = false;
