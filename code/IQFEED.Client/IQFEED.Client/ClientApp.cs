@@ -213,7 +213,8 @@ namespace IQFEED.Client
             if (responseFields[0] == "Q" || responseFields[0] == "P")
             {
                 // Validate whether recived response is for our request.
-                if(SymbolContainer.Symbols.TryGetValue(responseFields[1], out Symbol symbol))
+                Symbol symbol = null;
+                if (SymbolContainer.Symbols.TryGetValue(responseFields[1], out symbol))
                 {
                     // Parse current price and update to symbol.
                     symbol.CurrentPrice = double.Parse(responseFields[2].Trim());
