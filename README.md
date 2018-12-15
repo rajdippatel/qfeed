@@ -1,3 +1,3 @@
 # QFeed
 
-## C#.Net based console application to read RSS Feed Streams
+## C#.Net based console application to read RSS feed streams
